@@ -45,6 +45,7 @@ export default class AccountsSDK {
 
     const defaultOptions = {
       prompt: '',
+      secondary: '',
       response_type: 'token',
       popup_flow: 'auto',
       state: '',
@@ -127,6 +128,10 @@ export default class AccountsSDK {
     ]);
 
     Object.assign(params, localOptions.tracking);
+
+    if (options.secondary) {
+      params.secondary = 'true';
+    }
 
     if (params.scope === null) {
       delete params.scope;
